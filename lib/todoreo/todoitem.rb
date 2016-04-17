@@ -1,6 +1,6 @@
 module Todoreo
   class TodoItem
-    attr_accessor :todo, :days, :time
+    attr_accessor :todo, :days #, :time
 
     @@todo_id = 0
     def initialize

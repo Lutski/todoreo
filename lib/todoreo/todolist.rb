@@ -39,8 +39,8 @@ module Todoreo
       newTodoItem.todo = gets.chomp
       print "How many days do you need to complete it: "
       newTodoItem.days = gets.chomp
-      print "At what time of the day should it be complete (example: 12:45): "
-      newTodoItem.time = gets.chomp
+      #print "At what time of the day should it be complete (example: 12:45): "
+      #newTodoItem.time = gets.chomp
       @todoItems.push(newTodoItem)
 
       puts newTodoItem
@@ -61,10 +61,10 @@ module Todoreo
         time_until_due_date = item.time_created + (60 * 60 * 24 * item.days.to_i)
 
         todo_due_date = time_until_due_date.strftime("%Y-%m-%d")
-        time_of_the_day = item.time
+        #time_of_the_day = item.time
 
         if Time.now < time_until_due_date
-          puts "[#{todoCounter}] #{item.todo} - Due at #{todo_due_date} on #{time_of_the_day}"
+          puts "[#{todoCounter}] #{item.todo} - Due at #{todo_due_date}"#on # { time_of_the_day }
         else
           puts "[#{todoCounter}] #{item.todo} - Due date overlapped (Type 'dot' to delete all overlapped todos )"
         end
@@ -105,7 +105,7 @@ module Todoreo
           puts "What do you want to edit?"
           puts "'todo' to edit the todo content"
           puts "'days' to edit the days you have left"
-          puts "'time' to edit the specific time you have to complete it"
+          #puts "'time' to edit the specific time you have to complete it"
           loop do
             decision = gets.chomp
             case decision
@@ -119,11 +119,11 @@ module Todoreo
               new_version = gets.chomp
               item.days = new_version
               break
-            when 'time'
-              print "What should the new time be?: "
-              new_version = gets.chomp
-              item.time = new_version
-              break
+            # when 'time'
+            #   print "What should the new time be?: "
+            #   new_version = gets.chomp
+            #   item.time = new_version
+            #   break
             end
           end
           puts "Successfully updated the todo with id of [#{id}]"
