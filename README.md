@@ -24,7 +24,7 @@ Or install it yourself as:
 
 After you have installed Todoreo, you can run
 
-  $ todoreo
+    $ todoreo
 
 in your terminal and it will boot it up... Enjoy ( ͡° ͜ʖ ͡°)
 
