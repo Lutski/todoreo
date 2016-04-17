@@ -22,7 +22,11 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+After you have installed Todoreo, you can run
+
+  $ todoreo
+
+in your terminal and it will boot it up... Enjoy ( ͡° ͜ʖ ͡°)
 
 ## Development
 
