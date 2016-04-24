@@ -1,7 +1,22 @@
+require 'yaml'
+
 module Todoreo
   class TodoList
     def initialize
       @todoItems = []
+      open()
+    end
+
+    def open
+      if File.exist?("todoreo.yml")
+        @todoItems = YAML.load_file("todoreo.yml")
+      end
+    end
+
+    def save
+      File.open("todoreo.yml", "w") do |file|
+        file.write(@todoItems.to_yaml)
+      end
     end
 
     def run_program
@@ -24,6 +39,7 @@ module Todoreo
           input = gets.chomp
           edit_specific_todo(input)
         when 'exit'
+          save()
           break
         when '--help', '-help', '-h', 'help'
           get_help
