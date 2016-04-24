@@ -25,11 +25,13 @@ module Todoreo
         input = gets.chomp
         case input
         when 'add'
-          add_todo_item
+          add_todo_item()
         when 'all'
-          show_todos
+          show_todos()
         when 'dot'
-          delete_overlapped_todos
+          delete_overlapped_todos()
+        when 'dat'
+          delete_all_todos()
         when 'dst'
           print "Type the id of the todo you want to delete: "
           input = gets.chomp
@@ -38,11 +40,11 @@ module Todoreo
           print "Type the id of the todo you want to edit: "
           input = gets.chomp
           edit_specific_todo(input)
-        when 'exit'
+        when 'exit', 'e'
           save()
           break
         when '--help', '-help', '-h', 'help'
-          get_help
+          get_help()
         when 'sweet love'
           puts "( ͡° ͜ʖ ͡°)\n  Oke"
         end
@@ -94,6 +96,14 @@ module Todoreo
         if Time.now > time_until_due_date
           @todoItems.delete(item)
         end
+      end
+
+      show_todos()
+    end
+
+    def delete_all_todos
+      @todoItems.each do |item|
+        @todoItems.delete(item)
       end
 
       show_todos()
@@ -154,6 +164,7 @@ module Todoreo
       puts "Type 'add' to create a new todo"
       puts "Type 'all' to view all todos"
       puts "Type 'dst' to delete a specific todo via their id (1., 2. etc.)"
+      puts "Type 'dat' to delete all todos"
       puts "Type 'dot' to delete overlapped todos"
       puts "Type 'exit' to exit the application (all data will be saved)"
     end
