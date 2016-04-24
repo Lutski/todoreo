@@ -102,10 +102,7 @@ module Todoreo
     end
 
     def delete_all_todos
-      @todoItems.each do |item|
-        @todoItems.delete(item)
-      end
-
+      @todoItems.clear
       show_todos()
     end
 
